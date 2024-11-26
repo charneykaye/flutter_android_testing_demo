@@ -1,0 +1,60 @@
+name: CI
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+#  push:
+#    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.x'
+          channel: 'stable'
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Run tests
+        run: flutter test
+
+      - name: Build debug APK
+        run: flutter build apk --debug
+
+      - name: run tests with emulator runner
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          script: ./gradlew connectedCheck
+
+#      - name: Run Android Tests
+#        working-directory: android
+#        run: |
+#          adb -s emulator-5554 shell am instrument --no-window-animation -w \
+#            -e testLocale en_US \
+#            -e endingLocale en_US \
+#            -e package com.example.flutter_android_testing_demo \
+#            com.example.flutter_android_testing_demo.test/android.test.InstrumentationTestRunner
+
+
+
