@@ -15,21 +15,13 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## Android
 
-### android internal
-
-```sh
-[bundle exec] fastlane android internal
-```
-
-Deploy to Play Store Internal Testing Track
-
 ### android screenshots
 
 ```sh
 [bundle exec] fastlane android screenshots
 ```
 
-Capture screenshots and upload to Play Store
+Capture screenshots
 
 ----
 
