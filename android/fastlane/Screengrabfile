@@ -1,0 +1,12 @@
+app_package_name('com.example.flutter_android_testing_demo')
+use_tests_in_packages(['com.example.flutter_android_testing_demo'])
+tests_package_name('com.example.flutter_android_testing_demo.test')
+
+app_apk_path('../build/app/outputs/apk/debug/app-debug.apk')
+tests_apk_path('../build/app/outputs/apk/androidTest/debug/app-debug-androidTest.apk')
+
+test_instrumentation_runner 'android.test.InstrumentationTestRunner'
+
+locales(['en-US'])
+
+clear_previous_screenshots(true)
