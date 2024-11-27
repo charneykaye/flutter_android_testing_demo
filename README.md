@@ -1,8 +1,11 @@
 [![CI](https://github.com/charneykaye/flutter_android_testing_demo/actions/workflows/ci.yaml/badge.svg)](https://github.com/charneykaye/flutter_android_testing_demo/actions/workflows/ci.yaml)
 
-# Flutter Android testing demo
+# Flutter Screenshots testing demo
 
-1. Create a new Flutter project
+Create a new Flutter project and add Fastlane screenshots.
+
+## Android
+
 2. Add Android testing dependencies to build.gradle and AndroidManifest.xml
 3. Initialize Fastlane for the Android project
 4. Add an Android test to take screenshots using Screengrab
