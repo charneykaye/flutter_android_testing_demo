@@ -34,4 +34,8 @@
             android:exported="true" />
 
     </application>
+
+    <instrumentation android:name="android.test.InstrumentationTestRunner"
+        android:targetPackage="com.example.flutter_android_testing_demo"
+        android:label="Flutter Android Testing Demo Test"/>
 </manifest>
