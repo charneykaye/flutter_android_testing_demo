@@ -48,9 +48,8 @@ public class ScreengrabTest {
 
     @Test
     public void testTakeScreenshots() throws Exception {
-        throw new Exception("HOODIE-HOO! PROOF THAT THIS TEST WAS RUN");
         // Take screenshot
-        // TODO Screengrab.screenshot("0_Example");
+        Screengrab.screenshot("0_Example");
     }
 }
 
