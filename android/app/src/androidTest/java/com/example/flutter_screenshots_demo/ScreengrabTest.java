@@ -2,11 +2,6 @@ package com.example.flutter_screenshots_demo;
 
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
-import androidx.test.platform.app.InstrumentationRegistry;
-import androidx.test.runner.AndroidJUnitRunner;
-import androidx.test.uiautomator.UiAutomatorInstrumentationTestRunner;
-import androidx.test.uiautomator.UiDevice;
-
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -14,7 +9,6 @@ import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
 
 import tools.fastlane.screengrab.Screengrab;
 import tools.fastlane.screengrab.UiAutomatorScreenshotStrategy;
@@ -47,7 +41,7 @@ public class ScreengrabTest {
     }
 
     @Test
-    public void testTakeScreenshots() throws Exception {
+    public void testTakeScreenshots() {
         // Take screenshot
         Screengrab.screenshot("0_Example");
     }
